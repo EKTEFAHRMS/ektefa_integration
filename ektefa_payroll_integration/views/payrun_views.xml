@@ -32,17 +32,6 @@
         <field name="arch" type="xml">
             <form edit="0" create="0" delete="0">
                 <header>
-<!--                    &lt;!&ndash; Post &ndash;&gt;-->
-<!--                    <button name="action_confirm" string="Journal Entry Post" class="oe_highlight"-->
-<!--                            type="object" data-hotkey="q"-->
-<!--                            invisible="not id or state != 'draft'"-->
-<!--                    />-->
-<!--                    &lt;!&ndash; Cancel &ndash;&gt;-->
-<!--                    <button name="button_cancel" string="Cancel" type="object" data-hotkey="x"-->
-<!--                            invisible="not id or state != 'draft'"/>-->
-<!--                    <button name="button_draft" string="Reset to Draft" type="object"-->
-<!--                            invisible="not id or state == 'draft'" data-hotkey="r" />-->
-
                     <!-- Status-Bar -->
                     <field name="state" widget="statusbar" statusbar_visible="draft,posted"/>
                 </header>

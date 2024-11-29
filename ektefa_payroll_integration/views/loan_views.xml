@@ -35,19 +35,6 @@
         <field name="arch" type="xml">
             <form edit="0" create="0" delete="0">
                 <header>
-<!--                    &lt;!&ndash; Post &ndash;&gt;-->
-<!--                    <button name="action_confirm" string="Journal Entry Post" class="oe_highlight"-->
-<!--                            type="object" data-hotkey="q"-->
-<!--                            attrs="{'invisible': ['|', ('id', '=', False), ('state', '!=', 'draft')]}"-->
-<!--                    />-->
-<!--                    &lt;!&ndash; Cancel &ndash;&gt;-->
-<!--                    <button name="button_cancel" string="Cancel" type="object" data-hotkey="x"-->
-<!--                            attrs="{'invisible': ['|', ('id', '=', False), ('state', '!=', 'draft')]}"-->
-<!--                    />-->
-<!--                    <button name="button_draft" string="Reset to Draft" type="object" data-hotkey="r"-->
-<!--                            attrs="{'invisible': ['|', ('id', '=', False), ('state', '==', 'draft')]}"-->
-<!--                    />-->
-
                     <!-- Status-Bar -->
                     <field name="state" widget="statusbar" statusbar_visible="draft,posted"/>
                 </header>
