@@ -1,0 +1,273 @@
+<odoo>
+
+    <!-- Ektefa Payroll Form View For Conf Settings-->
+    <record id="res_config_settings_view_form_ektefa_payroll" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.ektefa.payroll</field>
+        <field name="model">res.config.settings</field>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[hasclass('settings')]" position="inside">
+                <div class="app_settings_block"
+                     data-string="Ektefa Payroll" id="ektefa_payroll_integration"
+                     string="Ektefa Payroll"
+                     data-key="ektefa_payroll_integration"
+                     groups="ektefa_payroll_integration.group_ektefa_user"
+                >
+
+                    <h2>Ektefa Payroll - الربط مع نظام اكتفاء</h2>
+                    <div class="row mt16 o_settings_container" id="ektefa_payroll_integration_setting_container">
+                        <div class="col-12 col-lg-7 o_setting_box">
+                            <div class="o_setting_left_pane">
+                                 <field name="enable_ektefa_integration"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Ektefa API Details - بيانات الربط البرمجي</span>
+                                <div class="text-muted content-group mt16" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                                    <div>
+                                        <span>Enter EKTEFA API details to configure</span>
+                                    </div>
+                                    <div>
+                                        <span>الرجاء ادخال بيانات الربط البرمجي من صفحة  إدارة API في نظام اكتفاء</span>
+                                    </div>
+<!--                                    <group/>-->
+                                    <group>
+                                        <field name="ektefa_api_key" string="Ektefa API Key - مفتاح API" attrs="{'required': [('enable_ektefa_integration', '=', True)]}"/>
+                                    </group>
+<!--                                    <group/>-->
+                                    <group>
+                                        <field name="ektefa_secret" string="Ektefa Authorization Secret - سر" password="True" attrs="{'required': [('enable_ektefa_integration', '=', True)]}"/>
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-5 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Ektefa Company ID - حدد الشركة</span>
+                                <div class="text-muted content-group mt16">
+                                    <group>
+                                        <field name="ektefa_company_id" string="Company ID - رمز الشركة" attrs="{'required': [('enable_ektefa_integration', '=', True)]}"/>
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                            <div class="o_setting_left_pane">
+                                 <field name="enable_ektefa_journal_posts"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Auto Journal Entry Post - الترحيل التلقائي للقيود</span>
+                                <div class="text-muted content-group mt16" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                                    <div>
+                                        <span>Enable Automatic Journal Entry Posting from Ektefa APIs</span>
+                                    </div>
+                                    <div>
+                                        <span>تفعيل الترحيل التلقائي للقيود مباشرة فور ورودها من نظام اكتفاء</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">Ektefa Journal - دفتر اكتفاء</h2>
+                    <div class="row mt16 o_settings_container" id="ektefa_default_accounts" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                        <div class="col-12 col-lg-10 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Post Ektefa entries in - يتم إضافة القيود في</span>
+                                <div class="text-muted content-group mt16">
+                                    <group>
+                                        <field name="ektefa_journal_id" string="Ektefa Journal - حدد دفتر اكتفاء" attrs="{'required': [('enable_ektefa_integration', '=', True)]}"/>
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">Ektefa Payrun Accounts - اعدادات قيود الرواتب</h2>
+                    <div class="row mt16 o_settings_container" id="ektefa_income_accounts" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+
+                        <div class="col-12 col-lg-7 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Salaries Basic + Accommodation - حساب قيد الراتب الأساسي + بدل السكن</span>
+                                <div class="text-muted content-group mt16">
+                                    <group>
+                                        <field name="ektefa_salaries_basic_accommodation_credit_account" string="Credit Account"/>
+                                    </group>
+<!--                                    <group/>-->
+                                    <group>
+                                        <field name="ektefa_salaries_basic_accommodation_debit_account" string="Debit Account" />
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-5 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Allowances - حساب قيد بقية البدلات</span>
+                                <div class="text-muted content-group mt16">
+                                    <group>
+                                        <field name="ektefa_allowances_credit_account" string="Credit Account"/>
+                                    </group>
+<!--                                    <group/>-->
+                                    <group>
+                                        <field name="ektefa_allowances_debit_account" string="Debit Account" />
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-7 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Additions - حساب قيد الإضافات</span>
+                                <div class="text-muted content-group mt16">
+                                    <group>
+                                        <field name="ektefa_additions_credit_account" string="Credit Account"/>
+                                    </group>
+<!--                                    <group/>-->
+                                    <group>
+                                        <field name="ektefa_additions_debit_account" string="Debit Account" />
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row mt16 o_settings_container" id="ektefa_deductions_accounts" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                        <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Deductions - حساب قيد الحسميات</span>
+                                <div class="text-muted content-group mt16">
+                                    <group>
+                                        <field name="ektefa_deductions_credit_account" string="Credit Account"/>
+                                    </group>
+<!--                                    <group/>-->
+                                    <group>
+                                        <field name="ektefa_deductions_debit_account" string="Debit Account" />
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Deductions Gosi - حساب قيد حسميات التأمينات على الموظف</span>
+                                <div class="text-muted content-group mt16">
+                                    <group>
+                                        <field name="ektefa_deductions_gosi_credit_account" string="Credit Account"/>
+                                    </group>
+<!--                                    <group/>-->
+                                    <group>
+                                        <field name="ektefa_deductions_gosi_debit_account" string="Debit Account" />
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">Ektefa End of Service Accounts - اعدادات قيود نهاية الخدمة</h2>
+                    <div class="row mt16 o_settings_container" id="ektefa_eos_debit_accounts" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+<!--                        <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">-->
+<!--                            <div class="o_setting_left_pane"/>-->
+<!--                            <div class="o_setting_right_pane">-->
+<!--                                <span class="o_form_label">EOS Deductions::</span>-->
+<!--                                <div class="text-muted content-group mt16">-->
+<!--                                    <group>-->
+<!--                                        <field name="ektefa_eos_deductions_credit_account" string="Credit Account"/>-->
+<!--                                    </group>-->
+<!--                                    <group/>-->
+<!--                                    <group>-->
+<!--                                        <field name="ektefa_eos_deductions_debit_account" string="Debit Account" />-->
+<!--                                    </group>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+                        <div class="col-12 col-lg-10 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">EOS Accounts - حسابات نهاية الخدمة</span>
+                                <div class="text-muted content-group mt16">
+                                    <group>
+                                        <field name="ektefa_eos_net_total_debit_account" string="Net Total - حساب قيد صافي المستلم" />
+                                    </group>
+<!--                                    <group/>-->
+                                    <group>
+                                        <field name="ektefa_eos_net_total_debit_account_2" string="Deductions - حساب قيد الحسميات من نهاية الخدمة" />
+                                    </group>
+<!--                                    <group/>-->
+                                    <group>
+                                        <field name="ektefa_eos_net_total_credit_account" string="Allowance - حساب قيد استحقاق نهاية الخدمة"/>
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+<!--                    <div class="row mt16 o_settings_container" id="ektefa_eos_credit_accounts" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">-->
+<!--                        <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">-->
+<!--                            <div class="o_setting_left_pane"/>-->
+<!--                            <div class="o_setting_right_pane">-->
+<!--                                <span class="o_form_label">EOS Allowance:</span>-->
+<!--                                <div class="text-muted content-group mt16">-->
+<!--                                    <group>-->
+<!--                                        <field name="ektefa_eos_allowance_credit_account" string="Credit Account"/>-->
+<!--                                    </group>-->
+<!--                                    <group/>-->
+<!--                                    <group>-->
+<!--                                        <field name="ektefa_eos_allowance_debit_account" string="Debit Account" />-->
+<!--                                    </group>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+                    <h2 attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">Ektefa Loans Accounts - اعدادات قيد السلف</h2>
+                    <div class="row mt16 o_settings_container" id="ektefa_loans_accounts" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                        <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Loans - السلف</span>
+                                <div class="text-muted content-group mt16">
+                                    <group>
+                                        <field name="ektefa_loans_credit_account" string="Credit Account"/>
+                                    </group>
+<!--                                    <group/>-->
+                                    <group>
+                                        <field name="ektefa_loans_debit_account" string="Debit Account" />
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2 attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">Ektefa Loans Settlement Accounts - اعدادات قيد اقفال السلفة للموظف</h2>
+                    <div class="row mt16 o_settings_container" id="ektefa_loans_settlement_accounts" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                        <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
+                            <div class="o_setting_left_pane"/>
+                            <div class="o_setting_right_pane">
+                                <span class="o_form_label">Loans Settlement - سداد السلفه للموظف</span>
+                                <div class="text-muted content-group mt16">
+                                    <group>
+                                        <field name="ektefa_loans_settlement_credit_account" string="Credit Account"/>
+                                    </group>
+<!--                                    <group/>-->
+                                    <group>
+                                        <field name="ektefa_loans_settlement_debit_account" string="Debit Account" />
+                                    </group>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
