@@ -1,5 +1,5 @@
 {
-    'name': 'Ektefa Payroll Integration',
+    'name': 'EKTEFA HRMS اكتفاء نظام الموارد البشرية',
     'version': '1.0',
     'sequence': 15,
     'summary': 'Integration with Ektefa Payroll System',
