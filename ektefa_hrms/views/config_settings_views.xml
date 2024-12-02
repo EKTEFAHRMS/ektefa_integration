@@ -8,13 +8,13 @@
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('settings')]" position="inside">
                 <div class="app_settings_block"
-                     data-string="Ektefa Payroll" id="ektefa_payroll_integration"
-                     string="Ektefa Payroll"
-                     data-key="ektefa_payroll_integration"
-                     groups="ektefa_payroll_integration.group_ektefa_user"
+                     data-string="Ektefa HRMS" id="ektefa_hrms"
+                     string="Ektefa HRMS"
+                     data-key="ektefa_hrms"
+                     groups="ektefa_hrms.group_ektefa_user"
                 >
 
-                    <h2>Ektefa Payroll - الربط مع نظام اكتفاء</h2>
+                    <h2>Ektefa HRMS - اكتفاء نظام الموارد البشرية</h2>
                     <div class="row mt16 o_settings_container" id="ektefa_payroll_integration_setting_container">
                         <div class="col-12 col-lg-7 o_setting_box">
                             <div class="o_setting_left_pane">
@@ -29,11 +29,9 @@
                                     <div>
                                         <span>الرجاء ادخال بيانات الربط البرمجي من صفحة  إدارة API في نظام اكتفاء</span>
                                     </div>
-<!--                                    <group/>-->
                                     <group>
                                         <field name="ektefa_api_key" string="Ektefa API Key - مفتاح API" attrs="{'required': [('enable_ektefa_integration', '=', True)]}"/>
                                     </group>
-<!--                                    <group/>-->
                                     <group>
                                         <field name="ektefa_secret" string="Ektefa Authorization Secret - سر" password="True" attrs="{'required': [('enable_ektefa_integration', '=', True)]}"/>
                                     </group>
@@ -95,7 +93,6 @@
                                     <group>
                                         <field name="ektefa_salaries_basic_accommodation_credit_account" string="Credit Account"/>
                                     </group>
-<!--                                    <group/>-->
                                     <group>
                                         <field name="ektefa_salaries_basic_accommodation_debit_account" string="Debit Account" />
                                     </group>
@@ -111,7 +108,6 @@
                                     <group>
                                         <field name="ektefa_allowances_credit_account" string="Credit Account"/>
                                     </group>
-<!--                                    <group/>-->
                                     <group>
                                         <field name="ektefa_allowances_debit_account" string="Debit Account" />
                                     </group>
@@ -127,7 +123,6 @@
                                     <group>
                                         <field name="ektefa_additions_credit_account" string="Credit Account"/>
                                     </group>
-<!--                                    <group/>-->
                                     <group>
                                         <field name="ektefa_additions_debit_account" string="Debit Account" />
                                     </group>
@@ -146,7 +141,6 @@
                                     <group>
                                         <field name="ektefa_deductions_credit_account" string="Credit Account"/>
                                     </group>
-<!--                                    <group/>-->
                                     <group>
                                         <field name="ektefa_deductions_debit_account" string="Debit Account" />
                                     </group>
@@ -161,7 +155,6 @@
                                     <group>
                                         <field name="ektefa_deductions_gosi_credit_account" string="Credit Account"/>
                                     </group>
-<!--                                    <group/>-->
                                     <group>
                                         <field name="ektefa_deductions_gosi_debit_account" string="Debit Account" />
                                     </group>
@@ -172,21 +165,6 @@
 
                     <h2 attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">Ektefa End of Service Accounts - اعدادات قيود نهاية الخدمة</h2>
                     <div class="row mt16 o_settings_container" id="ektefa_eos_debit_accounts" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
-<!--                        <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">-->
-<!--                            <div class="o_setting_left_pane"/>-->
-<!--                            <div class="o_setting_right_pane">-->
-<!--                                <span class="o_form_label">EOS Deductions::</span>-->
-<!--                                <div class="text-muted content-group mt16">-->
-<!--                                    <group>-->
-<!--                                        <field name="ektefa_eos_deductions_credit_account" string="Credit Account"/>-->
-<!--                                    </group>-->
-<!--                                    <group/>-->
-<!--                                    <group>-->
-<!--                                        <field name="ektefa_eos_deductions_debit_account" string="Debit Account" />-->
-<!--                                    </group>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
                         <div class="col-12 col-lg-10 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
                             <div class="o_setting_left_pane"/>
                             <div class="o_setting_right_pane">
@@ -195,11 +173,9 @@
                                     <group>
                                         <field name="ektefa_eos_net_total_debit_account" string="Net Total - حساب قيد صافي المستلم" />
                                     </group>
-<!--                                    <group/>-->
                                     <group>
                                         <field name="ektefa_eos_net_total_debit_account_2" string="Deductions - حساب قيد الحسميات من نهاية الخدمة" />
                                     </group>
-<!--                                    <group/>-->
                                     <group>
                                         <field name="ektefa_eos_net_total_credit_account" string="Allowance - حساب قيد استحقاق نهاية الخدمة"/>
                                     </group>
@@ -207,24 +183,6 @@
                             </div>
                         </div>
                     </div>
-
-<!--                    <div class="row mt16 o_settings_container" id="ektefa_eos_credit_accounts" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">-->
-<!--                        <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">-->
-<!--                            <div class="o_setting_left_pane"/>-->
-<!--                            <div class="o_setting_right_pane">-->
-<!--                                <span class="o_form_label">EOS Allowance:</span>-->
-<!--                                <div class="text-muted content-group mt16">-->
-<!--                                    <group>-->
-<!--                                        <field name="ektefa_eos_allowance_credit_account" string="Credit Account"/>-->
-<!--                                    </group>-->
-<!--                                    <group/>-->
-<!--                                    <group>-->
-<!--                                        <field name="ektefa_eos_allowance_debit_account" string="Debit Account" />-->
-<!--                                    </group>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
 
                     <h2 attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">Ektefa Loans Accounts - اعدادات قيد السلف</h2>
                     <div class="row mt16 o_settings_container" id="ektefa_loans_accounts" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
@@ -236,7 +194,6 @@
                                     <group>
                                         <field name="ektefa_loans_credit_account" string="Credit Account"/>
                                     </group>
-<!--                                    <group/>-->
                                     <group>
                                         <field name="ektefa_loans_debit_account" string="Debit Account" />
                                     </group>
@@ -255,7 +212,6 @@
                                     <group>
                                         <field name="ektefa_loans_settlement_credit_account" string="Credit Account"/>
                                     </group>
-<!--                                    <group/>-->
                                     <group>
                                         <field name="ektefa_loans_settlement_debit_account" string="Debit Account" />
                                     </group>
