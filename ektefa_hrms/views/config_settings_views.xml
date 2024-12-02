@@ -1,6 +1,6 @@
 <odoo>
 
-    <!-- Ektefa Payroll Form View For Conf Settings-->
+    <!-- Ektefa HRMS Form View For Conf Settings-->
     <record id="res_config_settings_view_form_ektefa_payroll" model="ir.ui.view">
         <field name="name">res.config.settings.view.form.inherit.ektefa.payroll
         </field>
@@ -9,9 +9,9 @@
         <field name="arch" type="xml">
             <xpath expr="//form"
                    position="inside">
-                    <app data-string="Ektefa Payroll" string="Ektefa Payroll" name="ektefa_payroll_integration" groups="ektefa_payroll_integration.group_ektefa_user">
+                    <app data-string="Ektefa HRMS" string="Ektefa HRMS" name="ektefa_hrms" groups="ektefa_hrms.group_ektefa_user">
 
-                        <block title="Ektefa Payroll - الربط مع نظام اكتفاء" id="ektefa_payroll_integration_setting" name="ektefa_payroll_integration_setting_container" >
+                        <block title="Ektefa HRMS - اكتفاء نظام الموارد البشرية" id="ektefa_hrms_setting" name="ektefa_hrms_setting_container" >
                             <setting class="col-lg-7" string="Ektefa API Details - بيانات الربط البرمجي" company_dependent="1">
                                 <field name="enable_ektefa_integration"/>
                                 <div class="content-group" invisible="not enable_ektefa_integration">
