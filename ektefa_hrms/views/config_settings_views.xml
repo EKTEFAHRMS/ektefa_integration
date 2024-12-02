@@ -8,13 +8,13 @@
         <field name="arch" type="xml">
             <xpath expr="//div[hasclass('settings')]" position="inside">
                 <div class="app_settings_block"
-                     data-string="Ektefa Payroll" id="ektefa_payroll_integration"
-                     string="Ektefa Payroll"
-                     data-key="ektefa_payroll_integration"
-                     groups="ektefa_payroll_integration.group_ektefa_user"
+                     data-string="Ektefa HRMS" id="ektefa_hrms"
+                     string="Ektefa HRMS"
+                     data-key="ektefa_hrms"
+                     groups="ektefa_hrms.group_ektefa_user"
                 >
 
-                    <h2>Ektefa Payroll - الربط مع نظام اكتفاء</h2>
+                    <h2>Ektefa HRMS - اكتفاء نظام الموارد البشرية</h2>
                     <div class="row mt16 o_settings_container" id="ektefa_payroll_integration_setting_container">
                         <div class="col-12 col-lg-7 o_setting_box">
                             <div class="o_setting_left_pane">
@@ -183,6 +183,7 @@
                             </div>
                         </div>
                     </div>
+
                     <h2 attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">Ektefa Loans Accounts - اعدادات قيد السلف</h2>
                     <div class="row mt16 o_settings_container" id="ektefa_loans_accounts" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">
                         <div class="col-12 col-lg-6 o_setting_box" attrs="{'invisible': [('enable_ektefa_integration', '=', False)]}">

@@ -2,7 +2,7 @@
     'name': 'EKTEFA HRMS اكتفاء نظام الموارد البشرية',
     'version': '1.0',
     'sequence': 15,
-    'summary': 'Integration with Ektefa Payroll System',
+    'summary': 'EKTEFA HRMS اكتفاء نظام الموارد البشرية',
     'description': """
         This app integrates Odoo with Ektefa Payroll System for seamless payroll management.
         
